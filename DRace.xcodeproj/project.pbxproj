@@ -23,6 +23,8 @@
 		21F7DAD11FBFE2E2002BA0AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21F7DAD01FBFE2E2002BA0AD /* GoogleService-Info.plist */; };
 		21F7DAD31FBFF8DA002BA0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 214E54481FBFDC290086FF03 /* Info.plist */; };
 		21F7DAD51FBFFC9B002BA0AD /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F7DAD41FBFFC9B002BA0AD /* AuthViewController.swift */; };
+		3A0C176B1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */; };
+		3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */; };
 		B63CF5EC1FC4EF3F00EB302E /* RenewDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CF5EB1FC4EF3F00EB302E /* RenewDataController.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		21F7DAD01FBFE2E2002BA0AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		21F7DAD21FBFF4C7002BA0AD /* DRace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DRace.entitlements; sourceTree = "<group>"; };
 		21F7DAD41FBFFC9B002BA0AD /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScreenViewControlle.swift; sourceTree = "<group>"; };
+		3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingItem.swift; sourceTree = "<group>"; };
 		564DC220A628937759E50AAF /* Pods_DRace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		735337FF5BF384B2529B88B0 /* Pods-DRace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.release.xcconfig"; sourceTree = "<group>"; };
 		9D9B5E532F7FC369118E10A5 /* Pods-DRace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				214E54531FBFDDE50086FF03 /* WeightController.swift */,
 				214E544F1FBFDDE40086FF03 /* ExerciseController.swift */,
 				214E544E1FBFDDE40086FF03 /* UIButtonClass.swift */,
+				3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */,
+				3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */,
 				214E54401FBFDC290086FF03 /* Main.storyboard */,
 				214E54541FBFDDE50086FF03 /* MainViewController.swift */,
 				214E54431FBFDC290086FF03 /* Assets.xcassets */,
@@ -282,6 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */,
+				3A0C176B1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift in Sources */,
 				214E54591FBFDDE50086FF03 /* DataController.swift in Sources */,
 				214E54581FBFDDE50086FF03 /* SettingController.swift in Sources */,
 				21F7DAD51FBFFC9B002BA0AD /* AuthViewController.swift in Sources */,
