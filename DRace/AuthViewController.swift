@@ -16,9 +16,14 @@ import GoogleSignIn
 var ref:DatabaseReference?
 var handle:DatabaseHandle?
 
+//comment
+//comment2
+
 class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate{
     @IBOutlet weak var activityLoadingSpin: UIActivityIndicatorView!
     //se to delegates LoginButtonDelegate
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
