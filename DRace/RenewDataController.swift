@@ -30,7 +30,6 @@ class RenewDataController: UIViewController {
         
         ref = Database.database().reference()
         if weight.text != "" {
-           // ref?.child("weightList").childByAutoId().setValue((weight?.text)! + "kg")
             
             Auth.auth().addStateDidChangeListener { (auth, user) in
                 if user != nil {
@@ -56,7 +55,7 @@ class RenewDataController: UIViewController {
                 if user != nil {
                     //move user to the home screen
                     ref = Database.database().reference()
-                    ref?.child("\(user?.uid)").child("exerciseList").childByAutoId().setValue((self.exercise?.text)! + "kg")
+                    ref?.child("\(user?.uid)").child("exerciseList").childByAutoId().setValue((self.exercise?.text)!)
                     
                 } else {
                     // No user is signed in.
