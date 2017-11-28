@@ -30,21 +30,33 @@ class RenewDataController: UIViewController {
         
         ref = Database.database().reference()
         if weight.text != "" {
-            
-            Auth.auth().addStateDidChangeListener { (auth, user) in
-                if user != nil {
-                    //move user to the home screen
-                    ref = Database.database().reference()
-                    ref?.child("\(user?.uid)").child("weightList").childByAutoId().setValue((self.weight?.text)! + "kg")
-                    
-                } else {
+            if user != nil {
+                //move user to the home screen
+                ref = Database.database().reference()
+                ref?.child("\(user?.uid)").child("weightList").childByAutoId().setValue((self.weight?.text)!)
+                
+                ref?.child("\(user?.uid)").observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    if DataSnapshot.hasChild("startingWeight") == false {
+                        // the user uses the app fo the first time; starting weight variable must be created in firebase database
+                        ref?.child("\(self.user?.uid)").child("startingWeight").setValue((self.weight?.text)!)
+                    }
+                    else{
+                        //reinitialize starting weignt; means that another game started
+                        
+                        //TODO:
+                        
+                        
+                        
+                        print("hello")
+                    }
+                })
+            } else {
                     // No user is signed in.
                     print("Error")
                     
                 }
             }
         }
-    }
 
     @IBAction func exerciseSubmit(_ sender: Any) {
         
