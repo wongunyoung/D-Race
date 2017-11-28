@@ -18,6 +18,7 @@ var handle:DatabaseHandle?
 
 //comment
 //comment2
+//Comment3
 
 class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate{
     @IBOutlet weak var activityLoadingSpin: UIActivityIndicatorView!
