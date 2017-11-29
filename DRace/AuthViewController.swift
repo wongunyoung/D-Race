@@ -16,7 +16,8 @@ import GoogleSignIn
 var ref:DatabaseReference?
 var handle:DatabaseHandle?
 
-var date = NSDate()
+let dateFormatter = DateFormatter()
+
 
 class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate{
     @IBOutlet weak var activityLoadingSpin: UIActivityIndicatorView!
@@ -29,10 +30,6 @@ class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDele
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
-                
-                // add recent login date to the firebase datebase
-                ref = Database.database().reference()
-                ref?.child("\(String(describing: user?.uid))").child("loginDate").setValue("\(String(describing: date))")
                 
                 //move user to the home screen
                 
