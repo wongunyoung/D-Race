@@ -17,7 +17,7 @@ class RenewDataController: UIViewController {
     @IBOutlet weak var exercise: UITextField!
     
     let user = Auth.auth().currentUser
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,28 +26,41 @@ class RenewDataController: UIViewController {
     
     @IBAction func weightSubmit(_ sender: Any) {
         
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        let dateS = Date().addingTimeInterval(24*60)
+        
+        // US English Locale (en_US)
+        dateFormatter.locale = Locale(identifier: "en_US")
+        var date = dateFormatter.string(from: dateS)
+        
+        
         //Save data to firebase database
         
         ref = Database.database().reference()
         if weight.text != "" {
             if user != nil {
-                //move user to the home screen
+
                 ref = Database.database().reference()
-                ref?.child("\(user?.uid)").child("weightList").childByAutoId().setValue((self.weight?.text)!)
+                ref?.child("\(user?.uid)").child("weightList").child("\(date)").setValue((self.weight?.text)!)
                 
+                
+                //save the starting weight to firebase database
+                //must be initialize by the timer
                 ref?.child("\(user?.uid)").observeSingleEvent(of: .value, with: { (DataSnapshot) in
                     if DataSnapshot.hasChild("startingWeight") == false {
+                        
                         // the user uses the app fo the first time; starting weight variable must be created in firebase database
                         ref?.child("\(self.user?.uid)").child("startingWeight").setValue((self.weight?.text)!)
                     }
                     else{
-                        //reinitialize starting weignt; means that another game started
-                        
                         //TODO:
-                        
-                        
-                        
-                        print("hello")
+                        //when the timer restarts new game
+                        //reinitialize starting weignt; means that another new game started
+
                     }
                 })
             } else {
