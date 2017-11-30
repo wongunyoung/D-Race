@@ -87,20 +87,23 @@ class RenewDataController: UIViewController {
         ref = Database.database().reference()
        
         if exercise.text != "" {
-            
             Auth.auth().addStateDidChangeListener { (auth, user) in
                 if user != nil {
                     //save the starting exercise to firebase database
-                    ref = Database.database().reference()
-                    //ref?.child("\(user?.uid)").child("exerciseList").childByAutoId().setValue(["date":"\(date)", "exercise":(self.exercise?.text)!])
+                    let user_ref = ref?.child((user?.uid)!);
+                    let exerciseVal = Int((self.exercise?.text)!)
                     
-                    
-                    ref?.child("\(user?.uid)").observeSingleEvent(of: .value, with: { (DataSnapshot) in
-                        if DataSnapshot.hasChild("exerciseList") == false {
-                            ref?.child("\(user?.uid)").child("exerciseList").child("\(date)").setValue((self.exercise?.text)!)
+                    user_ref?.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                        //If the record of today dosen't exist, make new one
+                        if DataSnapshot.hasChild("exerciseList") == false || DataSnapshot.childSnapshot(forPath: "exerciseList").hasChild("\(date)") == false {
+                            user_ref?.child("exerciseList").child("\(date)").setValue(exerciseVal)
                         }
-                        else{
-                            
+                        else{   //If the record exists, add new value to it
+                            let curExercise = DataSnapshot.childSnapshot(forPath: "exerciseList/\(date)").value
+                            let newExercise = (curExercise as! Int) + exerciseVal!
+                            user_ref?.child("exerciseList").child("\(date)").setValue(newExercise)
+                           
+                            /*
                             ref?.child("\(user?.uid)").child("exerciseList").observe(.childAdded, with: {(DataSnapshot) in
                                 if let temp = DataSnapshot.key as? String{
                                     print("key is \(temp)")
@@ -113,8 +116,7 @@ class RenewDataController: UIViewController {
                                     ref?.child("\(String(describing: user?.uid))").child("exerciseList").child("\(date)").setValue(sum)
                                     ref?.keepSynced(true)
                                 }
-                            })
-                            
+                            })*/
                         }
                     })
                     

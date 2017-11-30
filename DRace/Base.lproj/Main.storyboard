@@ -74,11 +74,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add new workout time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1Y-D0-Y7R">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add new workout time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1Y-D0-Y7R">
                                 <rect key="frame" x="69" y="177" width="160" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3yA-eB-O59">
@@ -250,7 +249,6 @@
         <!--Weight Controller-->
         <scene sceneID="3uS-jI-kLn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KoJ-NI-oee" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="4ki-mx-onc" customClass="WeightController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vO6-BB-Ok5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -279,6 +277,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KoJ-NI-oee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1994" y="-100"/>
         </scene>
@@ -335,7 +334,6 @@
         <!--Navigation Controller-->
         <scene sceneID="835-bu-WWl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fst-5y-uUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d0b-ca-FsA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AEg-Kl-m6m">
@@ -347,6 +345,7 @@
                         <segue destination="4ki-mx-onc" kind="relationship" relationship="rootViewController" id="zj4-0C-gc0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fst-5y-uUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3018" y="-100"/>
         </scene>

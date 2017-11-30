@@ -16,7 +16,7 @@ import GoogleSignIn
 var ref:DatabaseReference?
 var handle:DatabaseHandle?
 
-let dateFormatter = DateFormatter()
+//let dateFormatter = DateFormatter()
 
 
 class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate{
