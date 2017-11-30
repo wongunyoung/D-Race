@@ -34,7 +34,8 @@ class WeightController: UITableViewController {
         
         handle = ref?.child("\(user?.uid)").child("weightList").observe(.childAdded, with: { (snapshot) in
             if let item = snapshot.value as? String? {
-                weightList.append(item!)
+                //weightList.append(item!)
+                weightList.append("\(snapshot.key)" + " | " + item!)
                 self.tableView.reloadData()
                 ref?.keepSynced(true)
             }

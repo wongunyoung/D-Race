@@ -16,8 +16,8 @@ import GoogleSignIn
 var ref:DatabaseReference?
 var handle:DatabaseHandle?
 
-//comment
-//comment2
+let dateFormatter = DateFormatter()
+
 
 class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate{
     @IBOutlet weak var activityLoadingSpin: UIActivityIndicatorView!
@@ -30,6 +30,7 @@ class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDele
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
+                
                 //move user to the home screen
                 
                 let mainStoryboard: UIStoryboard =  UIStoryboard(name:"Main", bundle:nil)
