@@ -56,5 +56,10 @@ class RenewDataModel {
     
     func saveWeight(weight:String){
         
+        let curDate = getCurDate()
+        self.userRef.child("weightList").child(curDate).setValue(weight)
+        
     }
+    
+    
 }
