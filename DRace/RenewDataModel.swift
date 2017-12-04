@@ -59,21 +59,6 @@ class RenewDataModel {
         let curDate = getCurDate()
         self.userRef.child("weightList").child(curDate).setValue(weight)
         
-        userRef.observeSingleEvent(of: .value, with: { (DataSnapshot) in
-            //If the record of today dosen't exist, make new one
-            if DataSnapshot.hasChild("startingWeight") == false
-                || DataSnapshot.childSnapshot(forPath: "startingWeight").hasChild(curDate) == false {
-                self.userRef.child("startingWeight").child(curDate).setValue(weight)
-            }
-            else{
-                //the record exist and the timer restarts (1 week had passed)
-                //TODO:
-                print("")
-            }
-            
-            self.userRef.child("currentUpdate").setValue(curDate)
-        })
-        
     }
     
     
