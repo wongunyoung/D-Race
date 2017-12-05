@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DataController: UIViewController {
+class RecordViewController: UIViewController {
     
     @IBOutlet weak var exerdata: UITextView!
     @IBOutlet weak var weightdata: UITextView!

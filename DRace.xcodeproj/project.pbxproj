@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		02FBB35DB5316112575EB9E9 /* Pods_DRace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564DC220A628937759E50AAF /* Pods_DRace.framework */; };
 		214E543D1FBFDC290086FF03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E543C1FBFDC290086FF03 /* AppDelegate.swift */; };
-		214E543F1FBFDC290086FF03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E543E1FBFDC290086FF03 /* ViewController.swift */; };
+		214E543F1FBFDC290086FF03 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E543E1FBFDC290086FF03 /* RegisterViewController.swift */; };
 		214E54421FBFDC290086FF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214E54401FBFDC290086FF03 /* Main.storyboard */; };
 		214E54441FBFDC290086FF03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214E54431FBFDC290086FF03 /* Assets.xcassets */; };
 		214E54471FBFDC290086FF03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214E54451FBFDC290086FF03 /* LaunchScreen.storyboard */; };
 		214E54551FBFDDE50086FF03 /* UIButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E544E1FBFDDE40086FF03 /* UIButtonClass.swift */; };
-		214E54561FBFDDE50086FF03 /* ExerciseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E544F1FBFDDE40086FF03 /* ExerciseController.swift */; };
+		214E54561FBFDDE50086FF03 /* ExerciseRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E544F1FBFDDE40086FF03 /* ExerciseRecordController.swift */; };
 		214E54571FBFDDE50086FF03 /* RankingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E54501FBFDDE40086FF03 /* RankingController.swift */; };
 		214E54581FBFDDE50086FF03 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E54511FBFDDE50086FF03 /* SettingController.swift */; };
-		214E54591FBFDDE50086FF03 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E54521FBFDDE50086FF03 /* DataController.swift */; };
-		214E545A1FBFDDE50086FF03 /* WeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E54531FBFDDE50086FF03 /* WeightController.swift */; };
+		214E54591FBFDDE50086FF03 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E54521FBFDDE50086FF03 /* RecordViewController.swift */; };
+		214E545A1FBFDDE50086FF03 /* WeightRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E54531FBFDDE50086FF03 /* WeightRecordController.swift */; };
 		214E545B1FBFDDE50086FF03 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E54541FBFDDE50086FF03 /* MainViewController.swift */; };
 		21F7DAD11FBFE2E2002BA0AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21F7DAD01FBFE2E2002BA0AD /* GoogleService-Info.plist */; };
 		21F7DAD31FBFF8DA002BA0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 214E54481FBFDC290086FF03 /* Info.plist */; };
@@ -26,23 +26,25 @@
 		3A0C176B1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */; };
 		3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */; };
 		3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */; };
+		3A65E1201FD554A400EC67C6 /* GetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */; };
+		3A65E1221FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E1211FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift */; };
 		B63CF5EC1FC4EF3F00EB302E /* RenewDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CF5EB1FC4EF3F00EB302E /* RenewDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		214E54391FBFDC290086FF03 /* DRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214E543C1FBFDC290086FF03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		214E543E1FBFDC290086FF03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		214E543E1FBFDC290086FF03 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		214E54411FBFDC290086FF03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		214E54431FBFDC290086FF03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214E54461FBFDC290086FF03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		214E54481FBFDC290086FF03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		214E544E1FBFDDE40086FF03 /* UIButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonClass.swift; sourceTree = "<group>"; };
-		214E544F1FBFDDE40086FF03 /* ExerciseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseController.swift; sourceTree = "<group>"; };
+		214E544F1FBFDDE40086FF03 /* ExerciseRecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseRecordController.swift; sourceTree = "<group>"; };
 		214E54501FBFDDE40086FF03 /* RankingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingController.swift; sourceTree = "<group>"; };
 		214E54511FBFDDE50086FF03 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
-		214E54521FBFDDE50086FF03 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		214E54531FBFDDE50086FF03 /* WeightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightController.swift; sourceTree = "<group>"; };
+		214E54521FBFDDE50086FF03 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		214E54531FBFDDE50086FF03 /* WeightRecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightRecordController.swift; sourceTree = "<group>"; };
 		214E54541FBFDDE50086FF03 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		21F7DAD01FBFE2E2002BA0AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		21F7DAD21FBFF4C7002BA0AD /* DRace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DRace.entitlements; sourceTree = "<group>"; };
@@ -50,6 +52,8 @@
 		3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScreenViewControlle.swift; sourceTree = "<group>"; };
 		3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingItem.swift; sourceTree = "<group>"; };
 		3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewDataModel.swift; sourceTree = "<group>"; };
+		3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataModel.swift; sourceTree = "<group>"; };
+		3A65E1211FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTextFieldDelegate.swift; sourceTree = "<group>"; };
 		564DC220A628937759E50AAF /* Pods_DRace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		735337FF5BF384B2529B88B0 /* Pods-DRace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.release.xcconfig"; sourceTree = "<group>"; };
 		9D9B5E532F7FC369118E10A5 /* Pods-DRace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,15 +95,16 @@
 			children = (
 				21F7DAD21FBFF4C7002BA0AD /* DRace.entitlements */,
 				214E543C1FBFDC290086FF03 /* AppDelegate.swift */,
-				214E543E1FBFDC290086FF03 /* ViewController.swift */,
 				21F7DAD41FBFFC9B002BA0AD /* AuthViewController.swift */,
-				214E54521FBFDDE50086FF03 /* DataController.swift */,
+				3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */,
+				214E543E1FBFDC290086FF03 /* RegisterViewController.swift */,
+				214E54521FBFDDE50086FF03 /* RecordViewController.swift */,
 				B63CF5EB1FC4EF3F00EB302E /* RenewDataController.swift */,
 				3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */,
 				214E54501FBFDDE40086FF03 /* RankingController.swift */,
 				214E54511FBFDDE50086FF03 /* SettingController.swift */,
-				214E54531FBFDDE50086FF03 /* WeightController.swift */,
-				214E544F1FBFDDE40086FF03 /* ExerciseController.swift */,
+				214E54531FBFDDE50086FF03 /* WeightRecordController.swift */,
+				214E544F1FBFDDE40086FF03 /* ExerciseRecordController.swift */,
 				214E544E1FBFDDE40086FF03 /* UIButtonClass.swift */,
 				3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */,
 				3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */,
@@ -109,6 +114,7 @@
 				214E54451FBFDC290086FF03 /* LaunchScreen.storyboard */,
 				21F7DAD01FBFE2E2002BA0AD /* GoogleService-Info.plist */,
 				214E54481FBFDC290086FF03 /* Info.plist */,
+				3A65E1211FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift */,
 			);
 			path = DRace;
 			sourceTree = "<group>";
@@ -293,18 +299,20 @@
 			files = (
 				3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */,
 				3A0C176B1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift in Sources */,
-				214E54591FBFDDE50086FF03 /* DataController.swift in Sources */,
+				214E54591FBFDDE50086FF03 /* RecordViewController.swift in Sources */,
 				214E54581FBFDDE50086FF03 /* SettingController.swift in Sources */,
 				21F7DAD51FBFFC9B002BA0AD /* AuthViewController.swift in Sources */,
 				3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */,
-				214E543F1FBFDC290086FF03 /* ViewController.swift in Sources */,
+				3A65E1221FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift in Sources */,
+				214E543F1FBFDC290086FF03 /* RegisterViewController.swift in Sources */,
 				214E54571FBFDDE50086FF03 /* RankingController.swift in Sources */,
 				214E543D1FBFDC290086FF03 /* AppDelegate.swift in Sources */,
-				214E545A1FBFDDE50086FF03 /* WeightController.swift in Sources */,
+				214E545A1FBFDDE50086FF03 /* WeightRecordController.swift in Sources */,
 				B63CF5EC1FC4EF3F00EB302E /* RenewDataController.swift in Sources */,
 				214E545B1FBFDDE50086FF03 /* MainViewController.swift in Sources */,
 				214E54551FBFDDE50086FF03 /* UIButtonClass.swift in Sources */,
-				214E54561FBFDDE50086FF03 /* ExerciseController.swift in Sources */,
+				3A65E1201FD554A400EC67C6 /* GetDataModel.swift in Sources */,
+				214E54561FBFDDE50086FF03 /* ExerciseRecordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jr-pN-0M1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4026.4000000000001" y="828.93553223388312"/>
+            <point key="canvasLocation" x="-4105" y="829"/>
         </scene>
         <!--Record Save-->
         <scene sceneID="606-tx-C7c">
@@ -124,7 +124,7 @@
                         <color key="backgroundColor" red="1" green="0.76480761210000003" blue="0.74700005169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="sIR-CK-5x6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="정보갱신" image="renew" id="GoZ-wu-P0i"/>
+                    <tabBarItem key="tabBarItem" title="기록갱신" image="renew" id="GoZ-wu-P0i"/>
                     <connections>
                         <outlet property="exercisePicker" destination="hXK-dV-6JE" id="mUH-mC-Jnr"/>
                         <outlet property="weight" destination="3yA-eB-O59" id="ZL5-KI-GF2"/>
@@ -132,12 +132,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfg-K0-pj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4978.3999999999996" y="748.87556221889065"/>
+            <point key="canvasLocation" x="-5023" y="829"/>
         </scene>
-        <!--정보조회-->
+        <!--Record-->
         <scene sceneID="CMn-6O-YU2">
             <objects>
-                <viewController storyboardIdentifier="DataControllerView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kIV-hT-RC7" customClass="DataController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataControllerView" title="Record" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kIV-hT-RC7" customClass="RecordViewController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JN0-gi-cjx"/>
                         <viewControllerLayoutGuide type="bottom" id="l8M-V8-zQ3"/>
@@ -201,7 +201,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0j6-ip-bxP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="정보조회" image="data" id="LCr-TQ-zLg"/>
+                    <tabBarItem key="tabBarItem" title="기록조회" image="data" id="LCr-TQ-zLg"/>
                     <navigationItem key="navigationItem" id="cPJ-nx-IG1"/>
                     <connections>
                         <outlet property="exerdata" destination="KDY-LP-a9A" id="jeg-xV-9Kt"/>
@@ -212,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="-4007" y="-54"/>
         </scene>
-        <!--Excercise Controller-->
+        <!--Excercise Record Controller-->
         <scene sceneID="kSC-re-UJW">
             <objects>
-                <tableViewController id="C0w-oU-W2I" customClass="ExcerciseController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="C0w-oU-W2I" customClass="ExcerciseRecordController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BDG-DG-sXd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,10 +247,10 @@
             </objects>
             <point key="canvasLocation" x="-1994" y="-879"/>
         </scene>
-        <!--Weight Controller-->
+        <!--Weight Record Controller-->
         <scene sceneID="3uS-jI-kLn">
             <objects>
-                <tableViewController id="4ki-mx-onc" customClass="WeightController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4ki-mx-onc" customClass="WeightRecordController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vO6-BB-Ok5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,7 +295,7 @@
                                 <color key="color" red="0.9602620006" green="0.76108413929999996" blue="0.74901062249999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.76480761210000003" blue="0.74700005169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="2ud-OT-efM" firstAttribute="centerY" secondItem="oEr-uy-kEJ" secondAttribute="centerY" id="cdE-R0-4GY"/>
                             <constraint firstItem="2ud-OT-efM" firstAttribute="centerX" secondItem="oEr-uy-kEJ" secondAttribute="centerX" id="rcs-lE-OBr"/>
@@ -304,12 +304,13 @@
                     </view>
                     <connections>
                         <outlet property="activityLoadingSpin" destination="2ud-OT-efM" id="6fg-Sp-Pbt"/>
-                        <segue destination="HQe-B8-IvN" kind="show" identifier="loggedIn" id="wDX-CZ-rNi"/>
+                        <segue destination="HQe-B8-IvN" kind="show" identifier="moveToHome" id="wDX-CZ-rNi"/>
+                        <segue destination="YOI-cA-0sK" kind="show" identifier="firstLogin" id="ZFB-HS-cWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUk-qb-X42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5754" y="-54"/>
+            <point key="canvasLocation" x="-5986" y="-67"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LME-Hy-XbG">
@@ -446,6 +447,49 @@
             </objects>
             <point key="canvasLocation" x="-3154" y="829"/>
         </scene>
+        <!--Register View Controller-->
+        <scene sceneID="3Qc-ti-0R8">
+            <objects>
+                <viewController storyboardIdentifier="RegisterView" id="YOI-cA-0sK" customClass="RegisterViewController" customModule="DRace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z9Q-6V-Avp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new weight" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kV-lu-vrY">
+                                <rect key="frame" x="69" y="333" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your  weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-kN-1ra">
+                                <rect key="frame" x="69" y="304" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El5-wk-tx8">
+                                <rect key="frame" x="271" y="333" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.9999879599" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="weightSubmit:" destination="YOI-cA-0sK" eventType="touchUpInside" id="mko-8n-T02"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.76480761210000003" blue="0.74700005169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="GWR-9G-NgW"/>
+                    </view>
+                    <connections>
+                        <outlet property="weightInput" destination="2kV-lu-vrY" id="PBA-xX-Kqc"/>
+                        <segue destination="HQe-B8-IvN" kind="show" identifier="finishRegister" id="OMk-h3-h94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2D1-O9-i74" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5986.3999999999996" y="748.87556221889065"/>
+        </scene>
     </scenes>
     <resources>
         <image name="data" width="30" height="30"/>
@@ -453,4 +497,7 @@
         <image name="renew" width="30" height="30"/>
         <image name="user" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OMk-h3-h94"/>
+    </inferredMetricsTieBreakers>
 </document>

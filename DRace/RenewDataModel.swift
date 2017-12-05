@@ -55,11 +55,11 @@ class RenewDataModel {
     }
     
     func saveWeight(weight:String){
-        
         let curDate = getCurDate()
         self.userRef.child("weightList").child(curDate).setValue(weight)
-        
     }
     
-    
+    func saveStartingWeight(weight:String){
+        self.userRef.child("startingWeight").setValue(weight)
+    }
 }

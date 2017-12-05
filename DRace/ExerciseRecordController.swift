@@ -1,5 +1,5 @@
 //
-//  WeightController.swift
+//  ExerciseController.swift
 //  DRace
 //
 //  Created by sgcs on 2017. 11. 9..
@@ -11,37 +11,36 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-var weightList = [String]()
+var exerciseList = [String]()
 
-
-class WeightController: UITableViewController {
+class ExcerciseRecordController: UITableViewController {
     
-    //make connection to the firebase database
     let user = Auth.auth().currentUser
-    
-    @IBAction func back(){
+
+    @IBAction func Back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weightList.removeAll()
+        exerciseList.removeAll()
         
         //sync with database
         
         ref = Database.database().reference()
         
-        handle = ref?.child("\(user?.uid)").child("weightList").observe(.childAdded, with: { (snapshot) in
+        handle = ref?.child("\(user?.uid)").child("exerciseList").observe(.childAdded, with: { (snapshot) in
             if let item = snapshot.value as? String? {
-                //weightList.append(item!)
-                weightList.append("\(snapshot.key)" + " | " + item!)
+                exerciseList.append(item!)
                 self.tableView.reloadData()
                 ref?.keepSynced(true)
             }
         })
-        
-        
         
     }
     
@@ -50,19 +49,19 @@ class WeightController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weightList.count
+        return exerciseList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weightCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath)
         
-        var todo : String = weightList[indexPath.row]
+        var todo : String = exerciseList[indexPath.row]
         
         cell.textLabel?.text = todo
         
         return cell
     }
     
+    
 }
-

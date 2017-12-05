@@ -16,28 +16,24 @@ import GoogleSignIn
 var ref:DatabaseReference?
 var handle:DatabaseHandle?
 
-//let dateFormatter = DateFormatter()
-
-
 class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate{
     @IBOutlet weak var activityLoadingSpin: UIActivityIndicatorView!
-    //se to delegates LoginButtonDelegate
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
+                let getDataModel = GetDataModel(_uid: (user?.uid)!)
                 
-                //move user to the home screen
-                
-                let mainStoryboard: UIStoryboard =  UIStoryboard(name:"Main", bundle:nil)
-                let homeViewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeView")
-                
-                self.present(homeViewController, animated: true, completion: nil)
-                
+                if getDataModel.isUserRegistered() == true{
+                    //Move user to the home screen
+                    self.performSegue(withIdentifier: "moveToHome", sender: nil)
+                }
+                else{
+                    //Move user to the registration screen
+                    self.performSegue(withIdentifier: "firstLogin", sender: nil)
+                }
             } else {
                 //FaceBook Signin
                 let FBloginButton = LoginButton(readPermissions: [ .publicProfile ])
