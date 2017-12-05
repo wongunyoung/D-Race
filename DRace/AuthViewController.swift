@@ -18,22 +18,20 @@ var handle:DatabaseHandle?
 
 class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate{
     @IBOutlet weak var activityLoadingSpin: UIActivityIndicatorView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
-                let getDataModel = GetDataModel(_uid: (user?.uid)!)
-                
-                if getDataModel.isUserRegistered() == true{
-                    //Move user to the home screen
-                    self.performSegue(withIdentifier: "moveToHome", sender: nil)
-                }
-                else{
-                    //Move user to the registration screen
-                    self.performSegue(withIdentifier: "firstLogin", sender: nil)
-                }
+                Database.database().reference().observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    if DataSnapshot.hasChild((user?.uid)!){
+                        self.performSegue(withIdentifier: "moveToHome", sender: nil)
+                    }
+                    else{
+                        self.performSegue(withIdentifier: "firstLogin", sender: nil)
+                    }
+                })
             } else {
                 //FaceBook Signin
                 let FBloginButton = LoginButton(readPermissions: [ .publicProfile ])

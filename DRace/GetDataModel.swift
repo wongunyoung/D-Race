@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 class GetDataModel {
     let uid:String
@@ -18,17 +19,4 @@ class GetDataModel {
         userRef = Database.database().reference().child(_uid)
     }
     
-    func isUserRegistered() -> Bool{
-        var ret = false
-        
-        Database.database().reference().observeSingleEvent(of: .value, with: { (DataSnapshot) in
-            if (DataSnapshot.hasChild(self.uid)){
-                ret = true
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
-        
-        return ret
-    }
 }
