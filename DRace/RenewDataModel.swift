@@ -57,6 +57,15 @@ class RenewDataModel {
     func saveWeight(weight:String){
         let curDate = getCurDate()
         self.userRef.child("weightList").child(curDate).setValue(weight)
+        self.userRef.child("lastWeight").setValue(weight)
+        
+        if let dWeight = Double(weight) {
+            for i in 1...15 {
+                if dWeight >= Double(i-1) * 10.0 && dWeight < Double(i) * 10.0 {
+                    self.userRef.child("group").setValue(i)
+                }
+            }
+        }
     }
     
     func saveStartingWeight(weight:String){

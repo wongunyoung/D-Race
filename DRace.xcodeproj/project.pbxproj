@@ -27,7 +27,7 @@
 		3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */; };
 		3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */; };
 		3A65E1201FD554A400EC67C6 /* GetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */; };
-		3A65E1221FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E1211FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift */; };
+		3A65E1221FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */; };
 		B63CF5EC1FC4EF3F00EB302E /* RenewDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CF5EB1FC4EF3F00EB302E /* RenewDataController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingItem.swift; sourceTree = "<group>"; };
 		3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewDataModel.swift; sourceTree = "<group>"; };
 		3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataModel.swift; sourceTree = "<group>"; };
-		3A65E1211FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTextFieldDelegate.swift; sourceTree = "<group>"; };
+		3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldDelegate.swift; sourceTree = "<group>"; };
 		564DC220A628937759E50AAF /* Pods_DRace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		735337FF5BF384B2529B88B0 /* Pods-DRace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.release.xcconfig"; sourceTree = "<group>"; };
 		9D9B5E532F7FC369118E10A5 /* Pods-DRace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				214E54451FBFDC290086FF03 /* LaunchScreen.storyboard */,
 				21F7DAD01FBFE2E2002BA0AD /* GoogleService-Info.plist */,
 				214E54481FBFDC290086FF03 /* Info.plist */,
-				3A65E1211FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift */,
+				3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */,
 			);
 			path = DRace;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				214E54581FBFDDE50086FF03 /* SettingController.swift in Sources */,
 				21F7DAD51FBFFC9B002BA0AD /* AuthViewController.swift in Sources */,
 				3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */,
-				3A65E1221FD56AFF00EC67C6 /* ExerciseTextFieldDelegate.swift in Sources */,
+				3A65E1221FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift in Sources */,
 				214E543F1FBFDC290086FF03 /* RegisterViewController.swift in Sources */,
 				214E54571FBFDDE50086FF03 /* RankingController.swift in Sources */,
 				214E543D1FBFDC290086FF03 /* AppDelegate.swift in Sources */,

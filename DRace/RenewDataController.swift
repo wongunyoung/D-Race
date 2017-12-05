@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class RenewDataController: ExerciseTextFieldDelegate{
+class RenewDataController: CustomTextFieldDelegate{
 
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var exercisePicker: UIDatePicker!
@@ -27,9 +27,9 @@ class RenewDataController: ExerciseTextFieldDelegate{
         //UI initialization
         exercisePicker.countDownDuration = 0.0
         
-        //for UITextFieldDelegate
+        //Set delegate
         weight.delegate = self
-        // set keyboard to decimal pad to only allow 0123456789. characters
+        //Set keyboard to decimal pad to only allow 0123456789. characters
         weight.keyboardType = .decimalPad
     }
     
@@ -37,6 +37,10 @@ class RenewDataController: ExerciseTextFieldDelegate{
         if let newWeightVal = weight.text {
             renewDataModel?.saveWeight(weight: newWeightVal)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        weight.endEditing(true)
     }
 
     @IBAction func exerciseSubmit(_ sender: Any) {
