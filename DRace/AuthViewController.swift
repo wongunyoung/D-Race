@@ -34,19 +34,20 @@ class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDele
                 })
             } else {
                 //FaceBook Signin
-                let FBloginButton = LoginButton(readPermissions: [ .publicProfile ])
-                FBloginButton.center = self.view.center
+                let FBloginButton = LoginButton(frame: CGRect(x: 0, y: 0, width: 290, height: 40),readPermissions: [ .publicProfile ])
+                FBloginButton.center.x = self.view.center.x
+                FBloginButton.center.y = self.view.center.y * 1.25
                 FBloginButton.delegate = self;
-                
                 self.view.addSubview(FBloginButton)
                 
                 //Google Signin
                 GIDSignIn.sharedInstance().uiDelegate = self
                 //GIDSignIn.sharedInstance().signIn()
                 
-                let GGloginButton = GIDSignInButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                GGloginButton.center = self.view.center
-                GGloginButton.center.y +=  50.0
+                let GGloginButton = GIDSignInButton(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
+                GGloginButton.center.x = self.view.center.x
+                GGloginButton.center.y = FBloginButton.center.y + 50
+                GGloginButton.style = GIDSignInButtonStyle.wide
                 
                 self.view.addSubview(GGloginButton)
             }
