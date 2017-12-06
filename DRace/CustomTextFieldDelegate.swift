@@ -15,33 +15,34 @@ class CustomTextFieldDelegate: UIViewController, UITextFieldDelegate{
         if let label = textField.accessibilityLabel{
             switch label {
             case "weight":
-                let  char = string.cString(using: String.Encoding.utf8)!
-                let isBackSpace = strcmp(char, "\\b")
-        
-                let countdots =  (textField.text?.components(separatedBy: (".")).count)! - 1
-                let text = textField.text!
-                let newLength = (text.count) + string.count - range.length
-        
-                if (countdots > 0 && string == "."){
-                    //test number of dots
-                    return false
+                if string == ""{
+                    return true
                 }
-                else if(text.count == 3 && text[text.index(text.startIndex, offsetBy: 2)] != "." && isBackSpace != -92 && countdots == 0){
-                    textField.text?.append(".")
-                    return false
-                }
-                else if (newLength > 5){
-                    //test the total length of the number
-                    return false
-                }
-                else if(text.contains(".") == true){
-                    if(text[text.index(before: text.endIndex)] != "." && isBackSpace != -92){
-                        return false
+                
+                if let text = textField.text{
+                    var assignText = text
+                    
+                    let aSet = CharacterSet(charactersIn: "0123456789.").inverted
+                    let compSepByCharInSet = string.components(separatedBy: aSet)
+                    let numberFiltered = compSepByCharInSet.joined(separator: "")
+                    
+                    for char in numberFiltered{
+                        if assignText.contains(".") {
+                            if char != "." && assignText.last == "."{
+                                assignText.append(char)
+                                break
+                            }
+                        } else {
+                            if char == "." || assignText.count < 3{
+                                assignText.append(char)
+                            }
+                        }
                     }
-                    else{
-                        return true
-                    }
+                    
+                    textField.text = assignText
                 }
+                
+                return false
             default:
                 return true
             }

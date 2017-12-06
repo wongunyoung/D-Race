@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "CustomTextFieldDelegate.textField(_:shouldChangeCharactersIn:replacementString:):CustomTextFieldDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "GetDataModel.isUserRegistered():GetDataModel.swift">
          <PersistentStrings>
             <PersistentString
