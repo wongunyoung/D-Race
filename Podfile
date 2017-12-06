@@ -10,11 +10,11 @@ target 'DRace' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Messaging'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
-
-
 
 end
