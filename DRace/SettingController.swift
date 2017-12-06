@@ -11,7 +11,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
-import FBSDKLoginKit
+import FacebookLogin
 import GoogleSignIn
 
 class SettingController: UIViewController {
@@ -31,8 +31,7 @@ class SettingController: UIViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        GIDSignIn.sharedInstance().disconnect()
-        FBSDKAccessToken.setCurrent(nil)
+        //GIDSignIn.sharedInstance().disconnect()
         
         let mainStoryboard: UIStoryboard =  UIStoryboard(name:"Main", bundle:nil)
         let viewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "AuthViewController")
@@ -80,7 +79,7 @@ class SettingController: UIViewController {
             
             if(self.uiImageProfilePic.image == nil){
                 
-                var profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":200,"width":200,"redirect":false], httpMethod: "GET")
+                /*var profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":200,"width":200,"redirect":false], httpMethod: "GET")
                 profilePic?.start(completionHandler: {(connection, result, error) -> Void in
                     // Handle the result
                     if(error == nil){
@@ -108,7 +107,7 @@ class SettingController: UIViewController {
                             self.uiImageProfilePic.image = UIImage(data:imageData as Data)
                         }
                     }
-                })
+                })*/
             }//end if
             
         } else {

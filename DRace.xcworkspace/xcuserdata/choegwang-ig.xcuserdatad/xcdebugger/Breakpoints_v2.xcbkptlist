@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/RenewDataModel.swift"
-            timestampString = "534238337.572961"
+            timestampString = "534268659.809652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "getCurDate()"
-            landmarkType = "7">
+            landmarkName = "RenewDataModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/RenewDataModel.swift"
-            timestampString = "534238337.573138"
+            timestampString = "534268659.810045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
             endingLineNumber = "39"
-            landmarkName = "saveExercise(exerciseMin:)"
+            landmarkName = "saveExercise(exerciseMin:userID:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/RenewDataModel.swift"
-            timestampString = "534238337.573276"
+            timestampString = "534268659.810296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "saveExercise(exerciseMin:)"
+            landmarkName = "saveExercise(exerciseMin:userID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/CustomTextFieldDelegate.swift"
-            timestampString = "534238337.573396"
+            timestampString = "534268659.810452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/CustomTextFieldDelegate.swift"
-            timestampString = "534238337.573495"
+            timestampString = "534268659.810553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -154,23 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/CustomTextFieldDelegate.swift"
-            timestampString = "534238337.573576"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DRace/CustomTextFieldDelegate.swift"
-            timestampString = "534238337.573632"
+            timestampString = "534268659.810628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -186,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/AuthViewController.swift"
-            timestampString = "534243297.552046"
+            timestampString = "534265870.804934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -202,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/AuthViewController.swift"
-            timestampString = "534243297.552467"
+            timestampString = "534265870.805451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -218,13 +202,137 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DRace/AuthViewController.swift"
-            timestampString = "534243297.552732"
+            timestampString = "534265870.805855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DRace/RegisterViewController.swift"
+            timestampString = "534268659.810805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "RegisterViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DRace.RegisterViewController.__ivar_destroyer"
+                  moduleName = "DRace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choegwang-ig/Desktop/DRace/DRace/RegisterViewController.swift"
+                  timestampString = "534263791.068865"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DRace.RegisterViewController.__deallocating_deinit"
+                  moduleName = "DRace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choegwang-ig/Desktop/DRace/DRace/RegisterViewController.swift"
+                  timestampString = "534263791.070733"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DRace.RegisterViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; DRace.RegisterViewController"
+                  moduleName = "DRace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choegwang-ig/Desktop/DRace/DRace/RegisterViewController.swift"
+                  timestampString = "534263791.072304"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DRace.RegisterViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; DRace.RegisterViewController"
+                  moduleName = "DRace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choegwang-ig/Desktop/DRace/DRace/RegisterViewController.swift"
+                  timestampString = "534263791.073857"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DRace.RegisterViewController.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;DRace.RegisterViewController&gt;"
+                  moduleName = "DRace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choegwang-ig/Desktop/DRace/DRace/RegisterViewController.swift"
+                  timestampString = "534263791.075342"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DRace.RegisterViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;DRace.RegisterViewController&gt;"
+                  moduleName = "DRace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choegwang-ig/Desktop/DRace/DRace/RegisterViewController.swift"
+                  timestampString = "534263791.076877"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DRace/RecordViewController.swift"
+            timestampString = "534273123.432747"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

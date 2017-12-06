@@ -33,7 +33,7 @@ class CustomTextFieldDelegate: UIViewController, UITextFieldDelegate{
                                 break
                             }
                         } else {
-                            if char == "." || assignText.count < 3{
+                            if (char == "." && !assignText.isEmpty) || (char != "." && assignText.count < 3){
                                 assignText.append(char)
                             }
                         }

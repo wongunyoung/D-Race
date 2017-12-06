@@ -35,6 +35,17 @@ class RegisterViewController: CustomTextFieldDelegate{
         }
     }
     
+    @IBAction func cancel(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        performSegue(withIdentifier: "cancelRegister", sender: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

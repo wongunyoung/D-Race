@@ -73,12 +73,7 @@ class RenewDataModel {
                 let group = DataSnapshot.childSnapshot(forPath: "group/").value
                 print(group as! Int)
                 Database.database().reference().observeSingleEvent(of: .value, with: { (DataSnapshot) in
-                    if DataSnapshot.hasChild("ranking"){
-                        Database.database().reference().child("ranking").child("\(group as! Int)").child(userID).setValue(newTotalExercise)
-                    }
-                    else{
-                        Database.database().reference().child("\(group as! Int)").child(userID).setValue(newTotalExercise)
-                    }
+                    Database.database().reference().child("ranking").child("\(group as! Int)").child(userID).setValue(newTotalExercise)
                 })
             }
             
