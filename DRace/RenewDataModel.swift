@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseDatabase
 
 class RenewDataModel {
@@ -34,7 +35,7 @@ class RenewDataModel {
     }
     
     //Save exercise time from user input to the FireBase database
-    func saveExercise(exerciseMin:Int){
+    func saveExercise(exerciseMin:Int, userID:String){
         let curDate = getCurDate()
         
         userRef.observeSingleEvent(of: .value, with: { (DataSnapshot) in
@@ -43,6 +44,20 @@ class RenewDataModel {
                 || DataSnapshot.childSnapshot(forPath: "exerciseList").hasChild(curDate) == false {
                 self.userRef.child("exerciseList").child(curDate).setValue(exerciseMin)
                 self.userRef.child("totalExercise").setValue(exerciseMin)
+                
+                //get group number
+                let group = DataSnapshot.childSnapshot(forPath: "group/").value
+                print(group as! Int)
+                Database.database().reference().observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    if DataSnapshot.hasChild("ranking"){
+                        Database.database().reference().child("ranking").child("\(group as! Int)").child(userID).setValue(exerciseMin)
+                    }
+                    else{
+                        Database.database().reference().child("ranking").child("\(group as! Int)").child(userID).setValue(exerciseMin)
+                    }
+                })
+                
+                
             }
             else{   //If the record exists, add new value to it
                 let curExercise = DataSnapshot.childSnapshot(forPath: "exerciseList/" + curDate).value
@@ -53,6 +68,18 @@ class RenewDataModel {
                 
                 self.userRef.child("exerciseList").child(curDate).setValue(newExercise)
                 self.userRef.child("totalExercise").setValue(newTotalExercise)
+                
+                //get group number
+                let group = DataSnapshot.childSnapshot(forPath: "group/").value
+                print(group as! Int)
+                Database.database().reference().observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    if DataSnapshot.hasChild("ranking"){
+                        Database.database().reference().child("ranking").child("\(group as! Int)").child(userID).setValue(newTotalExercise)
+                    }
+                    else{
+                        Database.database().reference().child("\(group as! Int)").child(userID).setValue(newTotalExercise)
+                    }
+                })
             }
             
             self.userRef.child("currentUpdate").setValue(curDate)
