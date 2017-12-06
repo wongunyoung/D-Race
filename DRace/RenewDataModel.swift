@@ -42,11 +42,17 @@ class RenewDataModel {
             if DataSnapshot.hasChild("exerciseList") == false
                 || DataSnapshot.childSnapshot(forPath: "exerciseList").hasChild(curDate) == false {
                 self.userRef.child("exerciseList").child(curDate).setValue(exerciseMin)
+                self.userRef.child("totalExercise").setValue(exerciseMin)
             }
             else{   //If the record exists, add new value to it
                 let curExercise = DataSnapshot.childSnapshot(forPath: "exerciseList/" + curDate).value
                 let newExercise = (curExercise as! Int) + exerciseMin
+                
+                let curTotalExercise = DataSnapshot.childSnapshot(forPath: "totalExercise/").value
+                let newTotalExercise = (curTotalExercise as! Int) + exerciseMin
+                
                 self.userRef.child("exerciseList").child(curDate).setValue(newExercise)
+                self.userRef.child("totalExercise").setValue(newTotalExercise)
             }
             
             self.userRef.child("currentUpdate").setValue(curDate)
