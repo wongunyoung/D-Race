@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBj-S4-ya8">
-                                <rect key="frame" x="163" y="559" width="48" height="30"/>
+                                <rect key="frame" x="163.5" y="559" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="didTapLogout:" destination="eIs-PQ-3Nw" eventType="touchUpInside" id="iCl-bC-cz5"/>
@@ -153,7 +153,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-uL-sgn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jlz-2s-qKt">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jlz-2s-qKt" userLabel="Stack View 1">
                                                 <rect key="frame" x="62" y="45.5" width="250" height="89"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 당신의 오늘 운동량은" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxN-S2-NRm">
@@ -200,8 +200,52 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uI9-vB-gzv" userLabel="Stack View 2">
+                                                <rect key="frame" x="30" y="182" width="314" height="56.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="470-Kg-hRp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="149.5" height="56.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="어제 당신의 운동량은?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NE4-86-4s0">
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8H-Px-PvI">
+                                                                <rect key="frame" x="0.0" y="20.5" width="149.5" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uoc-Bh-Qox">
+                                                        <rect key="frame" x="164.5" y="0.0" width="149.5" height="56.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 그룹 내 1위는?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-If-Yx8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rf-Um-5AE">
+                                                                <rect key="frame" x="0.0" y="20.5" width="149.5" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="uoc-Bh-Qox" firstAttribute="width" secondItem="470-Kg-hRp" secondAttribute="width" id="N5P-tR-1bE"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="uI9-vB-gzv" firstAttribute="centerY" secondItem="jYc-uL-sgn" secondAttribute="centerY" multiplier="1.4" id="00m-Pc-KcM"/>
+                                            <constraint firstItem="uI9-vB-gzv" firstAttribute="centerX" secondItem="jlz-2s-qKt" secondAttribute="centerX" id="Jmd-fh-9ou"/>
                                             <constraint firstItem="jlz-2s-qKt" firstAttribute="centerX" secondItem="jYc-uL-sgn" secondAttribute="centerX" id="dCd-QW-lhl"/>
                                             <constraint firstItem="jlz-2s-qKt" firstAttribute="centerY" secondItem="jYc-uL-sgn" secondAttribute="centerY" multiplier="0.6" id="yFI-MT-94s"/>
                                         </constraints>
@@ -209,8 +253,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ij-JS-v0z">
                                         <rect key="frame" x="0.0" y="299" width="375" height="299"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dUt-tK-adq">
-                                                <rect key="frame" x="72" y="45" width="230" height="89"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dUt-tK-adq" userLabel="Stack View 1">
+                                                <rect key="frame" x="72" y="45.5" width="230" height="89"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 당신의 현재 몸무게는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7k-Xr-s0p">
                                                         <rect key="frame" x="0.0" y="0.0" width="230" height="24"/>
@@ -256,8 +300,52 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6gJ-UW-Rdu" userLabel="Stack View 2">
+                                                <rect key="frame" x="11" y="181.5" width="353" height="56.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="62R-iY-7XH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="56.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="저번 달 당신의 몸무게는?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zo-ih-R52">
+                                                                <rect key="frame" x="0.0" y="0.0" width="169" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhQ-Eh-HmP">
+                                                                <rect key="frame" x="0.0" y="20.5" width="169" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="s2q-bt-nbL">
+                                                        <rect key="frame" x="184" y="0.0" width="169" height="56.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 그룹 내 감량 1위는?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cce-mb-IkC">
+                                                                <rect key="frame" x="0.0" y="0.0" width="169" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxw-4y-V3g">
+                                                                <rect key="frame" x="0.0" y="20.5" width="169" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="s2q-bt-nbL" firstAttribute="width" secondItem="62R-iY-7XH" secondAttribute="width" id="ceB-CU-9GA"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="6gJ-UW-Rdu" firstAttribute="centerX" secondItem="9Ij-JS-v0z" secondAttribute="centerX" id="1UK-If-9a1"/>
+                                            <constraint firstItem="6gJ-UW-Rdu" firstAttribute="centerY" secondItem="9Ij-JS-v0z" secondAttribute="centerY" multiplier="1.4" id="3Vk-Nt-bUB"/>
                                             <constraint firstItem="dUt-tK-adq" firstAttribute="centerY" secondItem="9Ij-JS-v0z" secondAttribute="centerY" multiplier="0.6" id="Byk-El-DOX"/>
                                             <constraint firstItem="dUt-tK-adq" firstAttribute="centerX" secondItem="9Ij-JS-v0z" secondAttribute="centerX" id="vQL-ze-xbU"/>
                                         </constraints>
@@ -265,6 +353,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jYc-uL-sgn" firstAttribute="height" secondItem="9Ij-JS-v0z" secondAttribute="height" id="7J4-X1-vjz"/>
+                                    <constraint firstItem="9Ij-JS-v0z" firstAttribute="centerX" secondItem="R7F-44-YUh" secondAttribute="centerX" id="Lwq-8o-ciJ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -532,7 +621,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 몸무게를 입력해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-kN-1ra">
-                                <rect key="frame" x="47" y="233.5" width="281.5" height="31.5"/>
+                                <rect key="frame" x="46.5" y="233.5" width="281.5" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -555,7 +644,7 @@
                                 </items>
                             </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="e0X-sr-xu8">
-                                <rect key="frame" x="65" y="295.5" width="246.5" height="76"/>
+                                <rect key="frame" x="64.5" y="295.5" width="246.5" height="76"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="000.0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kV-lu-vrY">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="76"/>

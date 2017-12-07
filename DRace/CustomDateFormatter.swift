@@ -25,4 +25,14 @@ class CustomDateFormatter{
         
         return date
     }
+    
+    //Return current Month in the format "Month, Year"
+    class func getCurMonth() -> String{
+        //Get formatted current date
+        let date =  getCurDate()
+        let dateComponent = date.components(separatedBy: " ")
+        let month = dateComponent[0] + ", " + dateComponent[2]
+        
+        return month
+    }
 }

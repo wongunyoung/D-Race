@@ -52,8 +52,9 @@ class RecordViewController: UIViewController {
             }
             
             //Part for weight data
-            let weightText = DataSnapshot.childSnapshot(forPath: "lastWeight").value as! String
-            self.weightValue.text = weightText + " kg"
+            if let weightText = DataSnapshot.childSnapshot(forPath: "lastWeight").value{
+                self.weightValue.text = weightText as! String + " kg"
+            }
         })
     }
     
