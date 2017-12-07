@@ -17,26 +17,9 @@ class RenewDataModel {
         userRef = Database.database().reference().child(uid)
     }
     
-    //Return current date in the format "Month Day, Year"
-    func getCurDate() -> String{
-        //Get current date(non-formatted)
-        let dateS = Date().addingTimeInterval(24*60)
-        
-        //Define date format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
-        
-        //Formatting the date
-        let date = dateFormatter.string(from: dateS)
-        
-        return date
-    }
-    
     //Save exercise time from user input to the FireBase database
     func saveExercise(exerciseMin:Int, userID:String){
-        let curDate = getCurDate()
+        let curDate = CustomDateFormatter.getCurDate()
         
         userRef.observeSingleEvent(of: .value, with: { (DataSnapshot) in
             //If the record of today dosen't exist, make new one
@@ -83,7 +66,7 @@ class RenewDataModel {
     }
     
     func saveWeight(weight:String){
-        let curDate = getCurDate()
+        let curDate = CustomDateFormatter.getCurDate()
         self.userRef.child("weightList").child(curDate).setValue(weight)
         self.userRef.child("lastWeight").setValue(weight)
     }

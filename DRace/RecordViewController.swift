@@ -9,21 +9,52 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class RecordViewController: UIViewController {
     
-    @IBOutlet weak var exerdata: UITextView!
-    @IBOutlet weak var weightdata: UITextView!
+    @IBOutlet weak var exerciseValue: UILabel!
+    @IBOutlet weak var weightValue: UILabel!
     
-    /*func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-    }*/
+    let userRef = Database.database().reference().child((Auth.auth().currentUser?.uid)!)
     
     override func viewDidLoad() {
-        //exerdata.text = "오늘의 운동량은 10km입니다."
-        //exerdata.backgroundColor = UIColor(red: 255, green: 195, blue: 190, alpha: 1)
-        //weightdata.text = "현재 몸무게 10kg입니다."
-        //weightdata.backgroundColor = UIColor(red: 255, green: 195, blue: 190, alpha: 1)
+        let date = CustomDateFormatter.getCurDate()
+        userRef.observe(.value, with: { (DataSnapshot) in
+            
+            //Part for exercise data
+            if DataSnapshot.hasChild("exerciseList") == false || DataSnapshot.childSnapshot(forPath: "exerciseList").hasChild(date) == false{
+                //If there is not exercise data for today
+                self.exerciseValue.text = "미등록"
+            }
+            else{
+                //If there is exercise data for today
+                
+                //Calculate hout/minute
+                var minute = DataSnapshot.childSnapshot(forPath: "exerciseList").childSnapshot(forPath: date).value as! Int
+                let hour = minute / 60
+                minute = minute % 60
+                
+                //Text formatting
+                var labelText = ""
+                if hour != 0{
+                    labelText += "\(hour)시간"
+                }
+                if minute != 0{
+                    if !labelText.isEmpty{
+                        labelText += " "
+                    }
+                    labelText += "\(minute)분"
+                }
+                
+                self.exerciseValue.text = labelText
+            }
+            
+            //Part for weight data
+            let weightText = DataSnapshot.childSnapshot(forPath: "lastWeight").value as! String
+            self.weightValue.text = weightText + " kg"
+        })
     }
     
     override func didReceiveMemoryWarning() {

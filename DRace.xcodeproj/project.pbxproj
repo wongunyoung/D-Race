@@ -26,6 +26,7 @@
 		3A0C176B1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */; };
 		3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */; };
 		3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */; };
+		3A5452781FD90878009ECE62 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */; };
 		3A65E1201FD554A400EC67C6 /* GetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */; };
 		3A65E1221FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */; };
 		B63CF5EC1FC4EF3F00EB302E /* RenewDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CF5EB1FC4EF3F00EB302E /* RenewDataController.swift */; };
@@ -52,6 +53,7 @@
 		3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScreenViewControlle.swift; sourceTree = "<group>"; };
 		3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingItem.swift; sourceTree = "<group>"; };
 		3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewDataModel.swift; sourceTree = "<group>"; };
+		3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataModel.swift; sourceTree = "<group>"; };
 		3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldDelegate.swift; sourceTree = "<group>"; };
 		564DC220A628937759E50AAF /* Pods_DRace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				21F7DAD01FBFE2E2002BA0AD /* GoogleService-Info.plist */,
 				214E54481FBFDC290086FF03 /* Info.plist */,
 				3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */,
+				3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */,
 			);
 			path = DRace;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				21F7DAD51FBFFC9B002BA0AD /* AuthViewController.swift in Sources */,
 				3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */,
 				3A65E1221FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift in Sources */,
+				3A5452781FD90878009ECE62 /* CustomDateFormatter.swift in Sources */,
 				214E543F1FBFDC290086FF03 /* RegisterViewController.swift in Sources */,
 				214E54571FBFDDE50086FF03 /* RankingController.swift in Sources */,
 				214E543D1FBFDC290086FF03 /* AppDelegate.swift in Sources */,

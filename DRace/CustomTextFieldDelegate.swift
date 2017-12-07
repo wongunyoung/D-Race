@@ -11,14 +11,14 @@ import UIKit
 
 class CustomTextFieldDelegate: UIViewController, UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //setting backspace character
+        //For backspace
+        if string == ""{
+            return true
+        }
+        
         if let label = textField.accessibilityLabel{
             switch label {
             case "weight":
-                if string == ""{
-                    return true
-                }
-                
                 if let text = textField.text{
                     var assignText = text
                     
