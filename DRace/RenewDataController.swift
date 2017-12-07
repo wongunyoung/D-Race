@@ -45,7 +45,7 @@ class RenewDataController: CustomTextFieldDelegate{
 
     @IBAction func exerciseSubmit(_ sender: Any) {
         let newExerciseVal = Int(exercisePicker.countDownDuration / 60)
-        renewDataModel?.saveExercise(exerciseMin: newExerciseVal,userID: (user?.uid)!)
+        renewDataModel?.saveExercise(exerciseMin: newExerciseVal)
         //print(newExerciseVal)
     }
     

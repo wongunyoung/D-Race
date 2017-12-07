@@ -15,7 +15,9 @@ import FirebaseAuth
 class RecordViewController: UIViewController {
     
     @IBOutlet weak var exerciseValue: UILabel!
+    
     @IBOutlet weak var weightValue: UILabel!
+    @IBOutlet weak var startingWeightValue: UILabel!
     
     let userRef = Database.database().reference().child((Auth.auth().currentUser?.uid)!)
     
@@ -54,6 +56,11 @@ class RecordViewController: UIViewController {
             //Part for weight data
             if let weightText = DataSnapshot.childSnapshot(forPath: "lastWeight").value{
                 self.weightValue.text = weightText as! String + " kg"
+            }
+            
+            //Part for starting weight data
+            if let startingWeightText = DataSnapshot.childSnapshot(forPath: "startingWeight").value{
+                self.startingWeightValue.text = startingWeightText as! String + " kg"
             }
         })
     }

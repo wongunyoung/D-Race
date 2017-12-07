@@ -7,50 +7,19 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class RankingScreenViewController: UITableViewController {
-
-    /*
-    var items: [RankingItem]
-    
-    required init?(coder aDecoder: NSCoder){
-        
-        items = [RankingItem]()
-        
-        let row0item = RankingItem()
-        row0item.text = "Jayron Cena"
-        items.append(row0item)
-        
-        let row1item = RankingItem()
-        row1item.text = "Choi GwangIk"
-        items.append(row1item)
-        
-        let row2item = RankingItem()
-        row2item.text = "Won Gonyeong"
-        items.append(row2item)
-        
-        let row3item = RankingItem()
-        row3item.text = "Angelina Jolie"
-        items.append(row3item)
-        
-        let row4item = RankingItem()
-        row4item.text = "Brad Pitt"
-        items.append(row4item)
-        
-        super.init(coder: aDecoder)
-        
-    }
-    
-    */
+    let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let rankingRef = Database.database().reference().child("exerciseRanking")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,8 +29,7 @@ class RankingScreenViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RankingItem", for: indexPath)
-        
-       
+
         let label = cell.viewWithTag(1000) as! UILabel
         let rankingLabel = cell.viewWithTag(100) as! UILabel
         
