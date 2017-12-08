@@ -28,10 +28,10 @@ class RankingScreenViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.userRef.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+        self.userRef.observe(.value) { (DataSnapshot) in
             self.group = DataSnapshot.childSnapshot(forPath: "group").value as! Int
             self.getRankingData()
-        })
+        }
         
         /*
         sortedExerciseTime.removeAll()
@@ -68,6 +68,7 @@ class RankingScreenViewController: UITableViewController{
     }
     
     func getRankingData(){
+        exerciseRankingRef.removeAllObservers()
         exerciseRankingRef.observe(.value) { (DataSnapshot) in
             let exerciseRankingQuery = self.exerciseRankingRef.child("\(self.group)").queryOrderedByValue()
             exerciseRankingQuery.observeSingleEvent(of: .value, with: { (DataSnapshot) in
