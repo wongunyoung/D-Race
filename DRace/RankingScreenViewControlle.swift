@@ -10,12 +10,51 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class RankingScreenViewController: UITableViewController {
+//var userExerciseRanking = [Dictionary<String, Int>]()
+
+
+class RankingScreenViewController: UITableViewController{
+    
+    var userExerciseRanking: [String: Int] = [:]
+    var sortedExerciseTime:[(key: String, value: Int)] = []
+    
     let user = Auth.auth().currentUser
+    let rankingRef = Database.database().reference().child("exerciseRanking")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rankingRef = Database.database().reference().child("exerciseRanking")
+        
+        sortedExerciseTime.removeAll()
+        
+        Database.database().reference().child((self.user?.uid)!).observeSingleEvent(of: .value, with: { (DataSnapshot) in
+            if DataSnapshot.hasChild("group") == true{
+                
+                //get group number
+                let group = DataSnapshot.childSnapshot(forPath: "group/").value
+                
+                self.rankingRef.child("\(group as! Int)").observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    for child in DataSnapshot.children{
+                        
+                        let snap = child as! DataSnapshot
+                        let key = snap.key
+                        let value = snap.value
+                        self.userExerciseRanking[key] = value as? Int
+                    }
+                    
+                    // sorts exercise time data
+                    for (k,v) in (Array(self.userExerciseRanking).sorted {$0.1 > $1.1}) {
+                        self.sortedExerciseTime.append((key: k, value: v))
+                    }
+                    self.tableView.reloadData()
+                    
+                })
+                
+            }
+            else{
+                print("Cannot Get Exercise Time ranking. No exercise time data.The user inputted an exercise time")
+            }
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,43 +65,14 @@ class RankingScreenViewController: UITableViewController {
         return 100
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RankingItem", for: indexPath)
-
-        let label = cell.viewWithTag(1000) as! UILabel
-        let rankingLabel = cell.viewWithTag(100) as! UILabel
-        
-        rankingLabel.text = "\(indexPath.row + 1)"
-        
-        if indexPath.row % 5 == 0 {
-            label.text = "Jayron Cena"
-        }else if indexPath.row % 5 == 1{
-            label.text = "Choi GwangIk"
-        }else if indexPath.row % 5 == 2{
-            label.text = "Won GonYeong"
-        }else if indexPath.row % 5 == 3{
-            label.text = "Angelina Jolie"
-        }else if indexPath.row % 5 == 4{
-            label.text = "Brad Pitt"
-        }
-        return cell
-        
-        /*
-        let item = items[indexPath.row]
-        
-        configureText(for: cell, with: item)
-        
-        return cell */
-        
-    }
     
-    func configureText(for cell: UITableViewCell, with item: RankingItem){
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RankingItem", for: indexPath)
         
-        let labelName = cell.viewWithTag(1000) as! UILabel
-        labelName.text = item.text
+        //cell.textLabel?.text = "\(sortedExerciseTime[indexPath.row].key) + \(sortedExerciseTime[indexPath.row].value)"
+        
+        return cell
     }
-
 
 }
 
