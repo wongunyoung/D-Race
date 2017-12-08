@@ -19,11 +19,21 @@ class RankingScreenViewController: UITableViewController{
     var sortedExerciseTime:[(key: String, value: Int)] = []
     
     let user = Auth.auth().currentUser
-    let rankingRef = Database.database().reference().child("exerciseRanking")
+    let exerciseRankingRef = Database.database().reference().child("exerciseRanking")
+    let lossRankingRef = Database.database().reference().child("lossWeightRanking")
+    let userRef = Database.database().reference().child((Auth.auth().currentUser?.uid)!)
+    
+    var group = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.userRef.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+            self.group = DataSnapshot.childSnapshot(forPath: "group").value as! Int
+            self.getRankingData()
+        })
+        
+        /*
         sortedExerciseTime.removeAll()
         
         Database.database().reference().child((self.user?.uid)!).observeSingleEvent(of: .value, with: { (DataSnapshot) in
@@ -54,7 +64,20 @@ class RankingScreenViewController: UITableViewController{
                 print("Cannot Get Exercise Time ranking. No exercise time data.The user inputted an exercise time")
             }
             
-        })
+        })*/
+    }
+    
+    func getRankingData(){
+        exerciseRankingRef.observe(.value) { (DataSnapshot) in
+            let exerciseRankingQuery = self.exerciseRankingRef.child("\(self.group)").queryOrderedByValue()
+            exerciseRankingQuery.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                for child in DataSnapshot.children{
+                    let childString = "\(child)"
+                    let childComponent = childString.components(separatedBy: " ")
+                    print(childComponent[2])
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
