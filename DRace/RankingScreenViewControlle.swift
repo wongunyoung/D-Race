@@ -13,7 +13,7 @@ import FirebaseAuth
 //var userExerciseRanking = [Dictionary<String, Int>]()
 
 
-class RankingScreenViewController: UITableViewController {
+class RankingScreenViewController: UITableViewController{
     
     var userExerciseRanking: [String: Int] = [:]
     var sortedExerciseTime:[(key: String, value: Int)] = []
@@ -23,14 +23,8 @@ class RankingScreenViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getExerciseRanking()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func getExerciseRanking(){
+        
+        sortedExerciseTime.removeAll()
         
         Database.database().reference().child((self.user?.uid)!).observeSingleEvent(of: .value, with: { (DataSnapshot) in
             if DataSnapshot.hasChild("group") == true{
@@ -47,7 +41,12 @@ class RankingScreenViewController: UITableViewController {
                         self.userExerciseRanking[key] = value as? Int
                     }
                     
-                    self.SortArrayDictionary(parameter: self.userExerciseRanking)
+                    // sorts exercise time data
+                    for (k,v) in (Array(self.userExerciseRanking).sorted {$0.1 > $1.1}) {
+                        self.sortedExerciseTime.append((key: k, value: v))
+                    }
+                    self.tableView.reloadData()
+                    
                 })
                 
             }
@@ -56,53 +55,24 @@ class RankingScreenViewController: UITableViewController {
             }
             
         })
-        
     }
-    
-    func SortArrayDictionary(parameter: Dictionary<String, Int>){
-        
-        sortedExerciseTime.removeAll()
-        
-        for (k,v) in (Array(parameter).sorted {$0.1 > $1.1}) {
-            sortedExerciseTime.append((key: k, value: v))
-        }
-        
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RankingItem", for: indexPath)
-
-        let label = cell.viewWithTag(1000) as! UILabel
-        let rankingLabel = cell.viewWithTag(100) as! UILabel
-        
-        rankingLabel.text = "\(indexPath.row + 1)"
-        
-        if indexPath.row % 5 == 0 {
-            label.text = "Jayron Cena"
-        }else if indexPath.row % 5 == 1{
-            label.text = "Choi GwangIk"
-        }else if indexPath.row % 5 == 2{
-            label.text = "Won GonYeong"
-        }else if indexPath.row % 5 == 3{
-            label.text = "Angelina Jolie"
-        }else if indexPath.row % 5 == 4{
-            label.text = "Brad Pitt"
-        }
-        return cell
-        
-    }
     
-    func configureText(for cell: UITableViewCell, with item: RankingItem){
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RankingItem", for: indexPath)
         
-        let labelName = cell.viewWithTag(1000) as! UILabel
-        labelName.text = item.text
+        //cell.textLabel?.text = "\(sortedExerciseTime[indexPath.row].key) + \(sortedExerciseTime[indexPath.row].value)"
+        
+        return cell
     }
-
 
 }
 
