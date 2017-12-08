@@ -10,10 +10,13 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-var userExerciseRanking = [Dictionary<String, Int>]()
+//var userExerciseRanking = [Dictionary<String, Int>]()
+
 
 class RankingScreenViewController: UITableViewController {
     
+    var userExerciseRanking: [String: Int] = [:]
+    var sortedExerciseTime:[(key: String, value: Int)] = []
     
     let user = Auth.auth().currentUser
     let rankingRef = Database.database().reference().child("exerciseRanking")
@@ -25,7 +28,6 @@ class RankingScreenViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        getExerciseRanking()
     }
     
     func getExerciseRanking(){
@@ -42,11 +44,10 @@ class RankingScreenViewController: UITableViewController {
                         let snap = child as! DataSnapshot
                         let key = snap.key
                         let value = snap.value
-                        let exerciseOfUsers = [key : value as! Int]
-                        userExerciseRanking.append(exerciseOfUsers)
+                        self.userExerciseRanking[key] = value as? Int
                     }
                     
-                    self.SortArrayDictionary(parameter: userExerciseRanking)
+                    self.SortArrayDictionary(parameter: self.userExerciseRanking)
                 })
                 
             }
@@ -55,13 +56,16 @@ class RankingScreenViewController: UITableViewController {
             }
             
         })
+        
     }
     
-    func SortArrayDictionary(parameter: [Dictionary<String, Int>]){
+    func SortArrayDictionary(parameter: Dictionary<String, Int>){
         
-        // sort an array of dictionaries
+        sortedExerciseTime.removeAll()
         
-        print(parameter)
+        for (k,v) in (Array(parameter).sorted {$0.1 > $1.1}) {
+            sortedExerciseTime.append((key: k, value: v))
+        }
         
     }
     
