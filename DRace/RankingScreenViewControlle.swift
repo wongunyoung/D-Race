@@ -10,16 +10,59 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+var userExerciseRanking = [Dictionary<String, Int>]()
+
 class RankingScreenViewController: UITableViewController {
+    
+    
     let user = Auth.auth().currentUser
+    let rankingRef = Database.database().reference().child("exerciseRanking")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rankingRef = Database.database().reference().child("exerciseRanking")
+        getExerciseRanking()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        getExerciseRanking()
+    }
+    
+    func getExerciseRanking(){
+        
+        Database.database().reference().child((self.user?.uid)!).observeSingleEvent(of: .value, with: { (DataSnapshot) in
+            if DataSnapshot.hasChild("group") == true{
+                
+                //get group number
+                let group = DataSnapshot.childSnapshot(forPath: "group/").value
+                
+                self.rankingRef.child("\(group as! Int)").observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    for child in DataSnapshot.children{
+                        
+                        let snap = child as! DataSnapshot
+                        let key = snap.key
+                        let value = snap.value
+                        let exerciseOfUsers = [key : value as! Int]
+                        userExerciseRanking.append(exerciseOfUsers)
+                    }
+                    
+                    self.SortArrayDictionary(parameter: userExerciseRanking)
+                })
+                
+            }
+            else{
+                print("Cannot Get Exercise Time ranking. No exercise time data.The user inputted an exercise time")
+            }
+            
+        })
+    }
+    
+    func SortArrayDictionary(parameter: [Dictionary<String, Int>]){
+        
+        // sort an array of dictionaries
+        
+        print(parameter)
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,13 +90,6 @@ class RankingScreenViewController: UITableViewController {
             label.text = "Brad Pitt"
         }
         return cell
-        
-        /*
-        let item = items[indexPath.row]
-        
-        configureText(for: cell, with: item)
-        
-        return cell */
         
     }
     
