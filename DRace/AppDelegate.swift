@@ -24,10 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        //Facebook Login
-      //  SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        /*FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)*/
-        
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
@@ -46,13 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
         }
         application.registerForRemoteNotifications()
         
+        let token = Messaging.messaging().fcmToken
+        print("FCM token: \(token ?? "")")
+        
         return true
     }
-    /*func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        var handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-        
-        return handled
-    }*/
     
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
@@ -110,17 +104,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    /*
-    // for facebook login
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        return SDKApplicationDelegate.shared.application(app, open: url, options:options)
-    }
-    */
-    
     
     //message 수신
-    //수신
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
@@ -163,7 +148,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
         Messaging.messaging().appDidReceiveMessage(userInfo)
         // handle your message
     }
-
-
 }
+
+extension AppDelegate : MessagingDelegate {
+    // [START refresh_token]
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+    // [END refresh_token]
+    // [START ios_10_data_message]
+    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
+    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Received data message: \(remoteMessage.appData)")
+    }
+    // [END ios_10_data_message]
+}
+
+
 
