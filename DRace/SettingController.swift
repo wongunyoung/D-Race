@@ -14,14 +14,17 @@ import FirebaseStorage
 import FacebookLogin
 import GoogleSignIn
 
-class SettingController: UIViewController {
+class SettingController: CustomTextFieldDelegate {
     
-    //MARK: Properties
+    //각각 동일한 변수랑 연결해주면 된다.
+    @IBOutlet weak var pushtime: UITextField!
+    @IBOutlet weak var pushPicker: UIDatePicker!
+    //push pop up view
+    @IBOutlet weak var Background: UIButton!
+    @IBOutlet weak var pushPopupContraint: NSLayoutConstraint!
+    @IBOutlet weak var pushPopupView: UIView!
     
-    @IBOutlet weak var uiImageProfilePic: UIImageView!
-    @IBOutlet weak var uiLName: UILabel!
-    
-    
+    //로그아웃 버튼이랑 연결
     //MARK: Actions
     @IBAction func didTapLogout(_ sender: Any) {
         
@@ -37,84 +40,79 @@ class SettingController: UIViewController {
         let viewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "AuthViewController")
         
         self.present(viewController, animated: true, completion: nil)
-        
-        
     }
+    
+    // 시간변경 버튼이랑 연결. 누르면 팝업창 띄워준다.
+    @IBAction func showpushPopup(_ sender: Any) {
+        
+        //make sure that weight popup is closed
+        UIView.animate(withDuration: 0.1, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        pushPopupContraint.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        //self.backgroundButton.alpha = 0.8
+    }
+    
+    //Cancel 버튼이랑 연결. 적용안하고 팝 다시 뺌
+    @IBAction func closetimePopup(_ sender: Any) {
+        pushPopupContraint.constant = -360
+        UIView.animate(withDuration: 0.1, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        self.Background.alpha = 0
+    }
+    
+    //아무버튼이나 누르면 자동으로 popup종료. background와 연결하면 된다
+    @IBAction func closeAllPopup(_ sender: Any) {
+        
+        pushPopupContraint.constant = -360
+        UIView.animate(withDuration: 0.1, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        self.Background.alpha = 0
+    }
+    
+    // save 버튼이랑 연결. 저장시 newtimVal에 입력값 저장하고 이걸 보내서 적용하면 된다
+    @IBAction func pushtimeSubmit(_ sender: Any) {
+        if let newtimeVal = pushtime.text {
+            
+        }
+        
+        //remove pop up after saving
+        pushPopupContraint.constant = -360
+        UIView.animate(withDuration: 0.1, animations: {
+            self.view.layoutIfNeeded()
+        })
+        self.Background.alpha = 0
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        pushtime.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.uiImageProfilePic.clipsToBounds = true
+        pushPopupView.layer.cornerRadius = 10
+        pushPopupView.layer.masksToBounds = true
         
+        //UI initialization
+        pushPicker.countDownDuration = 0.0
+        pushPopupContraint.constant = -360
         
-        let user = Auth.auth().currentUser
-        if let user = user {
-            // The user's ID, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server,
-            // if you have one. Use getTokenWithCompletion:completion: instead.
-            let name = user.displayName
-            let uid = user.uid
-            let email = user.email
-            let photoURL = user.photoURL
-            
-            self.uiLName.text = name
-            
-            //reference to firebase storage service
-            let storage = Storage.storage()
-            
-            // Create a storage reference from our storage service
-            let storageRef = storage.reference(forURL: "gs://fblogintest-35707.appspot.com")
-            let profilePicRef = storageRef.child(user.uid+"/profile_pic.jpg")
-            
-            profilePicRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                if let error = error {
-                    print("unable to download image")
-                } else {
-                    // Data for "images/island.jpg" is returned
-                    if(data != nil){
-                        print("user already has an image no need to download from facebook")
-                        self.uiImageProfilePic.image = UIImage(data:data!)
-                    }
-                }
-            }
-            
-            if(self.uiImageProfilePic.image == nil){
-                
-                /*var profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":200,"width":200,"redirect":false], httpMethod: "GET")
-                profilePic?.start(completionHandler: {(connection, result, error) -> Void in
-                    // Handle the result
-                    if(error == nil){
-                        let dictionary = result as? NSDictionary
-                        let data = dictionary?.object(forKey: "data")
-                        
-                        let urlPic = ((data as AnyObject).object(forKey: "url"))! as! String
-                        
-                        if let imageData = NSData.init(contentsOf: NSURL(string:urlPic) as! URL){
-                            
-                            let uploadTask = profilePicRef.putData(imageData as Data, metadata: nil){
-                                metadata,error in
-                                
-                                if(error == nil){
-                                    
-                                    //size,content type or download url
-                                    let downloadUrl = metadata!.downloadURL
-                                }
-                                else{
-                                    print("Error in downloading image")
-                                }
-                            }
-                            
-                            
-                            self.uiImageProfilePic.image = UIImage(data:imageData as Data)
-                        }
-                    }
-                })*/
-            }//end if
-            
-        } else {
-            // No user is signed in.
-            // ...
-        }
-        
+        //Set delegate
+        pushtime.delegate = self
+        //Set keyboard to decimal pad to only allow 0123456789. characters
+        pushtime.keyboardType = .decimalPad
         
     }
+    
 }
+

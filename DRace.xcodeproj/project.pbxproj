@@ -24,7 +24,6 @@
 		21F7DAD31FBFF8DA002BA0AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 214E54481FBFDC290086FF03 /* Info.plist */; };
 		21F7DAD51FBFFC9B002BA0AD /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F7DAD41FBFFC9B002BA0AD /* AuthViewController.swift */; };
 		3A0C176B1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */; };
-		3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */; };
 		3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */; };
 		3A5452781FD90878009ECE62 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */; };
 		3A65E1201FD554A400EC67C6 /* GetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */; };
@@ -53,7 +52,6 @@
 		21F7DAD21FBFF4C7002BA0AD /* DRace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DRace.entitlements; sourceTree = "<group>"; };
 		21F7DAD41FBFFC9B002BA0AD /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScreenViewControlle.swift; sourceTree = "<group>"; };
-		3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingItem.swift; sourceTree = "<group>"; };
 		3A2248171FD3DA5F00A563DA /* RenewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewDataModel.swift; sourceTree = "<group>"; };
 		3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataModel.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				214E544F1FBFDDE40086FF03 /* ExerciseRecordController.swift */,
 				214E544E1FBFDDE40086FF03 /* UIButtonClass.swift */,
 				3A0C176A1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift */,
-				3A0C176C1FCB9BC3003F9EC4 /* RankingItem.swift */,
 				214E54401FBFDC290086FF03 /* Main.storyboard */,
 				214E54541FBFDDE50086FF03 /* MainViewController.swift */,
 				214E54431FBFDC290086FF03 /* Assets.xcassets */,
@@ -311,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A0C176D1FCB9BC3003F9EC4 /* RankingItem.swift in Sources */,
 				3A0C176B1FCB9B08003F9EC4 /* RankingScreenViewControlle.swift in Sources */,
 				214E54591FBFDDE50086FF03 /* RecordViewController.swift in Sources */,
 				214E54581FBFDDE50086FF03 /* SettingController.swift in Sources */,
