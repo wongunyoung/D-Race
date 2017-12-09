@@ -26,6 +26,21 @@ class CustomDateFormatter{
         return date
     }
     
+    class func getDateByOffset(dayOffset:Int) -> String{
+        //Get current date(non-formatted)
+        let dateS = Date().addingTimeInterval(TimeInterval(24*60 + dayOffset*24*60*60))
+        
+        //Define date format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
+        let date = dateFormatter.string(from: dateS)
+        
+        return date
+    }
+    
     //Return current Month in the format "Month, Year"
     class func getCurMonth() -> String{
         //Get formatted current date

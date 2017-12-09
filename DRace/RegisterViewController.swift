@@ -18,7 +18,7 @@ class RegisterViewController: CustomTextFieldDelegate{
         super.viewDidLoad()
         
         //Data renewing model
-        renewDataModel = RenewDataModel(uid: (user?.uid)!)
+        renewDataModel = RenewDataModel()
         
         //Set delegate and keyboard type
         weightInput.delegate = self
@@ -27,8 +27,7 @@ class RegisterViewController: CustomTextFieldDelegate{
     
     @IBAction func weightSubmit(_ sender: Any) {
         if let newWeightVal = weightInput.text {
-            renewDataModel?.saveWeight(weight: newWeightVal)
-            renewDataModel?.saveStartingWeight(weight: newWeightVal)
+            renewDataModel?.registerNewUser(weight: newWeightVal)
             
             performSegue(withIdentifier: "finishRegister", sender: nil)
         }

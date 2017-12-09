@@ -23,9 +23,14 @@ class AuthViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDele
         super.viewDidLoad()
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                Database.database().reference().observeSingleEvent(of: .value, with: { (DataSnapshot) in
-                    if DataSnapshot.hasChild((user?.uid)!){
+            if let _user = user{
+                userID = _user.uid
+                userRef = Database.database().reference().child("users/" + (Auth.auth().currentUser?.uid)!)
+                exerciseRankRef = Database.database().reference().child("exerciseRanking")
+                lossRankRef = Database.database().reference().child("lossWeightRanking")
+                
+                Database.database().reference().child("users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    if DataSnapshot.hasChild(userID!){
                         self.performSegue(withIdentifier: "moveToHome", sender: nil)
                     }
                     else{

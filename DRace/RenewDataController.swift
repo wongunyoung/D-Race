@@ -15,7 +15,7 @@ class RenewDataController: CustomTextFieldDelegate{
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var exercisePicker: UIDatePicker!
     
-    @IBOutlet weak var backgroundButton: UIButton!
+    //@IBOutlet weak var backgroundButton: UIButton!
     //exercise pop up view
     @IBOutlet weak var centerPopupContraint: NSLayoutConstraint!
     @IBOutlet weak var exercisePopupView: UIView!
@@ -23,6 +23,8 @@ class RenewDataController: CustomTextFieldDelegate{
     //weight pop up view
     @IBOutlet weak var weightCenterPopupConstraint: NSLayoutConstraint!
     @IBOutlet weak var weightPopupView: UIView!
+    
+    @IBOutlet weak var subView: UIView!
     
     let user = Auth.auth().currentUser
     var renewDataModel:RenewDataModel?
@@ -37,7 +39,7 @@ class RenewDataController: CustomTextFieldDelegate{
         weightPopupView.layer.masksToBounds = true
         
         //Data renewing model
-        renewDataModel = RenewDataModel(uid: (user?.uid)!)
+        renewDataModel = RenewDataModel()
         
         //UI initialization
         exercisePicker.countDownDuration = 0.0
@@ -61,7 +63,7 @@ class RenewDataController: CustomTextFieldDelegate{
             self.view.layoutIfNeeded()
         })
         
-        self.backgroundButton.alpha = 0.8
+        disableSubview()
     }
     
     @IBAction func showWeightPopup(_ sender: Any) {
@@ -77,14 +79,16 @@ class RenewDataController: CustomTextFieldDelegate{
             self.view.layoutIfNeeded()
         })
         
-        self.backgroundButton.alpha = 0.8
+        disableSubview()
     }
+    
     @IBAction func closeExercisePopup(_ sender: Any) {
         centerPopupContraint.constant = -360
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutIfNeeded()
         })
-        self.backgroundButton.alpha = 0
+        
+        enableSubview()
     }
     
     @IBAction func closeWeightPopup(_ sender: Any) {
@@ -93,22 +97,7 @@ class RenewDataController: CustomTextFieldDelegate{
             self.view.layoutIfNeeded()
         })
         
-        self.backgroundButton.alpha = 0
-    }
-    
-    @IBAction func closeAllPopup(_ sender: Any) {
-        
-        centerPopupContraint.constant = -360
-        UIView.animate(withDuration: 0.1, animations: {
-            self.view.layoutIfNeeded()
-        })
-        
-        weightCenterPopupConstraint.constant = -360
-        UIView.animate(withDuration: 0.1, animations: {
-            self.view.layoutIfNeeded()
-        })
-        
-        self.backgroundButton.alpha = 0
+        enableSubview()
     }
     
     @IBAction func weightSubmit(_ sender: Any) {
@@ -121,7 +110,9 @@ class RenewDataController: CustomTextFieldDelegate{
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutIfNeeded()
         })
-        self.backgroundButton.alpha = 0
+        
+        weight.text = ""
+        enableSubview()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -138,7 +129,18 @@ class RenewDataController: CustomTextFieldDelegate{
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutIfNeeded()
         })
-        self.backgroundButton.alpha = 0
+        
+        enableSubview()
+    }
+    
+    func disableSubview(){
+        subView.alpha = 0.8
+        subView.isUserInteractionEnabled = false
+    }
+    
+    func enableSubview(){
+        subView.alpha = 1
+        subView.isUserInteractionEnabled = true
     }
     
     override func didReceiveMemoryWarning() {

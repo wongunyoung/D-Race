@@ -10,75 +10,65 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-//var userExerciseRanking = [Dictionary<String, Int>]()
-
 
 class RankingScreenViewController: UITableViewController{
     
     var userExerciseRanking: [String: Int] = [:]
-    var sortedExerciseTime:[(key: String, value: Int)] = []
+    var sortedExerciseTime:[String] = []
     
-    let user = Auth.auth().currentUser
+    /*
     let exerciseRankingRef = Database.database().reference().child("exerciseRanking")
     let lossRankingRef = Database.database().reference().child("lossWeightRanking")
     let userRef = Database.database().reference().child((Auth.auth().currentUser?.uid)!)
-    
+    */
+ 
     var group = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.userRef.observe(.value) { (DataSnapshot) in
+        userRef?.observeSingleEvent(of: .value, with: { (DataSnapshot) in
             self.group = DataSnapshot.childSnapshot(forPath: "group").value as! Int
             self.getRankingData()
-        }
-        
-        /*
-        sortedExerciseTime.removeAll()
-        
-        Database.database().reference().child((self.user?.uid)!).observeSingleEvent(of: .value, with: { (DataSnapshot) in
-            if DataSnapshot.hasChild("group") == true{
-                
-                //get group number
-                let group = DataSnapshot.childSnapshot(forPath: "group/").value
-                
-                self.rankingRef.child("\(group as! Int)").observeSingleEvent(of: .value, with: { (DataSnapshot) in
-                    for child in DataSnapshot.children{
-                        
-                        let snap = child as! DataSnapshot
-                        let key = snap.key
-                        let value = snap.value
-                        self.userExerciseRanking[key] = value as? Int
-                    }
-                    
-                    // sorts exercise time data
-                    for (k,v) in (Array(self.userExerciseRanking).sorted {$0.1 > $1.1}) {
-                        self.sortedExerciseTime.append((key: k, value: v))
-                    }
-                    self.tableView.reloadData()
-                    
-                })
-                
-            }
-            else{
-                print("Cannot Get Exercise Time ranking. No exercise time data.The user inputted an exercise time")
-            }
-            
-        })*/
+        })
     }
     
+    /*
+    var curHandle:UInt = 0
+    var handleAssigned = false
+    */
+    
+    var userIdx = -1
     func getRankingData(){
-        exerciseRankingRef.removeAllObservers()
-        exerciseRankingRef.observe(.value) { (DataSnapshot) in
-            let exerciseRankingQuery = self.exerciseRankingRef.child("\(self.group)").queryOrderedByValue()
-            exerciseRankingQuery.observeSingleEvent(of: .value, with: { (DataSnapshot) in
-                for child in DataSnapshot.children{
+        /*if handleAssigned{
+            exerciseRankRef?.child("\(self.group)").removeObserver(withHandle: curHandle)
+        }
+        else{
+            handleAssigned = true
+        }*/
+
+        exerciseRankRef?.child("\(self.group)").observe(.value) { (DataSnapshot) in
+            let exerciseRankingQuery = exerciseRankRef?.child("\(self.group)").queryOrderedByValue()
+            exerciseRankingQuery?.observeSingleEvent(of:.value, with:{ (DataSnapshot) in
+                self.sortedExerciseTime.removeAll()
+                
+                var idx = 0
+                for child in DataSnapshot.children.reversed(){
                     let childString = "\(child)"
                     let childComponent = childString.components(separatedBy: " ")
-                    print(childComponent[2])
+                    self.sortedExerciseTime.append(childComponent[2])
+                    
+                    if childComponent[1].components(separatedBy: CharacterSet(charactersIn: "()"))[1] == userID{
+                        self.userIdx = idx
+                    }
+                    idx += 1
                 }
+                self.tableView.reloadData()
             })
         }
+        
+        /*print(newHandle!)
+        curHandle = newHandle!*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,17 +76,31 @@ class RankingScreenViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return sortedExerciseTime.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RankingItem", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RankingItem", for: indexPath) as! RankingItem
         
-        //cell.textLabel?.text = "\(sortedExerciseTime[indexPath.row].key) + \(sortedExerciseTime[indexPath.row].value)"
+        cell.rankLabel?.text = "\(indexPath.row + 1)위"
+        cell.valueLabel?.text = CustomTimeFormatter.time(rawMinuteS: sortedExerciseTime[indexPath.row])
+        if (userIdx == indexPath.row){
+            cell.messageLabel?.text = "당신의 순위입니다!"
+        }
+        else{
+            cell.messageLabel?.text = ""
+        }
         
         return cell
     }
 
 }
+
+class RankingItem:UITableViewCell{
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+}
+
 

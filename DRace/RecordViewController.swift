@@ -15,17 +15,22 @@ import FirebaseAuth
 class RecordViewController: UIViewController {
     
     @IBOutlet weak var exerciseValue: UILabel!
+    @IBOutlet weak var beforeExerciseValue: UILabel!
     
     @IBOutlet weak var weightValue: UILabel!
-    @IBOutlet weak var startingWeightValue: UILabel!
+    @IBOutlet weak var lossWeightValue: UILabel!
     
-    let userRef = Database.database().reference().child((Auth.auth().currentUser?.uid)!)
+    //let userRef = Database.database().reference().child((Auth.auth().currentUser?.uid)!)
     
     override func viewDidLoad() {
+        //Set notification token when default view is load
+        userRef?.child("noti-token").setValue(Messaging.messaging().fcmToken)
+        
         let date = CustomDateFormatter.getCurDate()
-        userRef.observe(.value, with: { (DataSnapshot) in
-            
-            //Part for exercise data
+        let month = CustomDateFormatter.getCurMonth()
+        
+        userRef?.observe(.value) { (DataSnapshot) in
+            //Part for exercise data for today
             if DataSnapshot.hasChild("exerciseList") == false || DataSnapshot.childSnapshot(forPath: "exerciseList").hasChild(date) == false{
                 //If there is not exercise data for today
                 self.exerciseValue.text = "미등록"
@@ -34,8 +39,8 @@ class RecordViewController: UIViewController {
                 //If there is exercise data for today
                 
                 //Calculate hout/minute
-                var minute = DataSnapshot.childSnapshot(forPath: "exerciseList").childSnapshot(forPath: date).value as! Int
-                let hour = minute / 60
+                let minute = DataSnapshot.childSnapshot(forPath: "exerciseList").childSnapshot(forPath: date).value as! Int
+                /*let hour = minute / 60
                 minute = minute % 60
                 
                 //Text formatting
@@ -48,9 +53,38 @@ class RecordViewController: UIViewController {
                         labelText += " "
                     }
                     labelText += "\(minute)분"
-                }
+                }*/
                 
-                self.exerciseValue.text = labelText
+                self.exerciseValue.text = CustomTimeFormatter.time(rawMinute: minute)
+            }
+            
+            let yesterday = CustomDateFormatter.getDateByOffset(dayOffset: -1)
+            //Part for exercise data for yesterday
+            if DataSnapshot.hasChild("exerciseList") == false || DataSnapshot.childSnapshot(forPath: "exerciseList").hasChild(yesterday) == false{
+                //If there is not exercise data for yesterday
+                self.beforeExerciseValue.text = "미등록"
+            }
+            else{
+                //If there is exercise data for yesterday
+                
+                //Calculate hout/minute
+                let minute = DataSnapshot.childSnapshot(forPath: "exerciseList").childSnapshot(forPath:yesterday).value as! Int
+                /*let hour = minute / 60
+                minute = minute % 60
+                
+                //Text formatting
+                var labelText = ""
+                if hour != 0{
+                    labelText += "\(hour)시간"
+                }
+                if minute != 0{
+                    if !labelText.isEmpty{
+                        labelText += " "
+                    }
+                    labelText += "\(minute)분"
+                }*/
+                
+                self.beforeExerciseValue.text = CustomTimeFormatter.time(rawMinute: minute)
             }
             
             //Part for weight data
@@ -58,17 +92,58 @@ class RecordViewController: UIViewController {
                 self.weightValue.text = weightText as! String + " kg"
             }
             
-            //Part for starting weight data
-            if let startingWeightText = DataSnapshot.childSnapshot(forPath: "startingWeight").value{
-                self.startingWeightValue.text = startingWeightText as! String + " kg"
+            //Part for lose weight data
+            if DataSnapshot.hasChild("lossWeight") == false || DataSnapshot.childSnapshot(forPath: "lossWeight").hasChild(month) == false{
+                //If there is not loss weight data for this month
+                self.lossWeightValue.text = "미등록"
             }
+            else{
+                //Display loss weight data for this month
+                let lossWeightText = DataSnapshot.childSnapshot(forPath: "lossWeight/" + month).value
+                self.lossWeightValue.text = lossWeightText as! String + "kg"
+            }
+        }
+        
+        userRef?.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+            self.group = DataSnapshot.childSnapshot(forPath: "group").value as! Int
+            self.getMaxData()
         })
+    }
+    
+    
+    @IBOutlet weak var exerciseMaxValue: UILabel!
+    @IBOutlet weak var lossWeightMaxValue: UILabel!
+    
+    var group = 0
+    func getMaxData(){
+        exerciseRankRef?.child("\(group)").observe(.value) { (DataSnapshot) in
+            let exerciseRankingQuery = exerciseRankRef?.child("\(self.group)").queryOrderedByValue()
+            exerciseRankingQuery?.observeSingleEvent(of:.value, with:{ (DataSnapshot) in
+                for child in DataSnapshot.children.reversed(){
+                    let childString = "\(child)"
+                    let childComponent = childString.components(separatedBy: " ")
+                    self.exerciseMaxValue.text = CustomTimeFormatter.time(rawMinute: Int(childComponent[2])!)
+                    break
+                }
+            })
+        }
+        
+        lossRankRef?.child("\(group)").observe(.value) { (DataSnapshot) in
+            let lossRankingQuery = lossRankRef?.child("\(self.group)").queryOrderedByValue()
+            lossRankingQuery?.observeSingleEvent(of:.value, with:{ (DataSnapshot) in
+                for child in DataSnapshot.children.reversed(){
+                    let childString = "\(child)"
+                    let childComponent = childString.components(separatedBy: " ")
+                    self.lossWeightMaxValue.text = childComponent[2] + "kg"
+                    break
+                }
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
 

@@ -29,6 +29,8 @@
 		3A5452781FD90878009ECE62 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */; };
 		3A65E1201FD554A400EC67C6 /* GetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */; };
 		3A65E1221FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */; };
+		3AF692791FDB8F8B000585EE /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF692781FDB8F8B000585EE /* Globals.swift */; };
+		3AF6927B1FDBCD98000585EE /* CustomTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6927A1FDBCD98000585EE /* CustomTimeFormatter.swift */; };
 		B63CF5EC1FC4EF3F00EB302E /* RenewDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63CF5EB1FC4EF3F00EB302E /* RenewDataController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataModel.swift; sourceTree = "<group>"; };
 		3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldDelegate.swift; sourceTree = "<group>"; };
+		3AF692781FDB8F8B000585EE /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		3AF6927A1FDBCD98000585EE /* CustomTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimeFormatter.swift; sourceTree = "<group>"; };
 		564DC220A628937759E50AAF /* Pods_DRace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		735337FF5BF384B2529B88B0 /* Pods-DRace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.release.xcconfig"; sourceTree = "<group>"; };
 		9D9B5E532F7FC369118E10A5 /* Pods-DRace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRace/Pods-DRace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			children = (
 				21F7DAD21FBFF4C7002BA0AD /* DRace.entitlements */,
 				214E543C1FBFDC290086FF03 /* AppDelegate.swift */,
+				3AF692781FDB8F8B000585EE /* Globals.swift */,
 				21F7DAD41FBFFC9B002BA0AD /* AuthViewController.swift */,
 				3A65E11F1FD554A400EC67C6 /* GetDataModel.swift */,
 				214E543E1FBFDC290086FF03 /* RegisterViewController.swift */,
@@ -118,6 +123,7 @@
 				214E54481FBFDC290086FF03 /* Info.plist */,
 				3A65E1211FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift */,
 				3A5452771FD90878009ECE62 /* CustomDateFormatter.swift */,
+				3AF6927A1FDBCD98000585EE /* CustomTimeFormatter.swift */,
 			);
 			path = DRace;
 			sourceTree = "<group>";
@@ -177,6 +183,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -310,10 +319,12 @@
 				3A2248181FD3DA5F00A563DA /* RenewDataModel.swift in Sources */,
 				3A65E1221FD56AFF00EC67C6 /* CustomTextFieldDelegate.swift in Sources */,
 				3A5452781FD90878009ECE62 /* CustomDateFormatter.swift in Sources */,
+				3AF692791FDB8F8B000585EE /* Globals.swift in Sources */,
 				214E543F1FBFDC290086FF03 /* RegisterViewController.swift in Sources */,
 				214E54571FBFDDE50086FF03 /* RankingController.swift in Sources */,
 				214E543D1FBFDC290086FF03 /* AppDelegate.swift in Sources */,
 				214E545A1FBFDDE50086FF03 /* WeightRecordController.swift in Sources */,
+				3AF6927B1FDBCD98000585EE /* CustomTimeFormatter.swift in Sources */,
 				B63CF5EC1FC4EF3F00EB302E /* RenewDataController.swift in Sources */,
 				214E545B1FBFDDE50086FF03 /* MainViewController.swift in Sources */,
 				214E54551FBFDDE50086FF03 /* UIButtonClass.swift in Sources */,

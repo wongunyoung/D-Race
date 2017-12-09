@@ -3,10 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #1 in RankingScreenViewController.getRankingData():RankingScreenViewControlle.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userID">
+            </PersistentString>
+            <PersistentString
+               value = "childComponent[1].components(separatedBy: CharacterSet(charactersIn: &quot;()&quot;))[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CustomTextFieldDelegate.textField(_:shouldChangeCharactersIn:replacementString:):CustomTextFieldDelegate.swift">
          <PersistentStrings>
             <PersistentString
                value = "textField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in RecordViewController.viewDidLoad():RecordViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lossWeightText as! String">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

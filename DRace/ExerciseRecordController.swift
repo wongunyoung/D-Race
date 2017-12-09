@@ -13,8 +13,9 @@ import FirebaseAuth
 
 var exerciseList = [String]()
 
+
 class ExcerciseRecordController: UITableViewController {
-    
+    /*
     let user = Auth.auth().currentUser
 
     @IBAction func Back(_ sender: Any) {
@@ -62,6 +63,7 @@ class ExcerciseRecordController: UITableViewController {
         
         return cell
     }
+    */
     
     
 }
